@@ -13,6 +13,8 @@ int main(){
 
     //se llama a la funcion para colocar el nombre de las zonas linea 7 de clima.c
     configurarNombresZonas(ciudades, TOTAL_ZONAS);
+    int cont = 0;
+    int opcion = 0;
 
     while (opcion != 4) {
         printf("\n======================================================\n");
@@ -30,20 +32,36 @@ int main(){
                 printf("\n--- REGISTRO DE MONITOREO DIARIO ---\n");
                 for (int i = 0; i < TOTAL_ZONAS; i++) {
                     ingresarDatosActuales(&ciudades[i]);
+                    cont ++;
                 }
                 break;
                 
             case 2:
+            if (cont > 0)
+            {
                 printf("\n--- ESTADO ACTUAL Y ALERTAS ---\n");
-
+            } else
+            {
+                printf("No se encontro ningun registro\n");
+            }
                 break;
                 
             case 3:
+            if (cont > 0)
+            {
                 printf("\n--- PREDICCION A 24 HORAS ---\n");
-
+            } else
+            {
+                printf("No se encontro ningun registro\n");
+            }
+            
                 break;
                 
             case 4:
+
+                break;
+
+            case 5:
 
                 break;
         }

@@ -8,7 +8,7 @@ int validarEntero(int valor, int min, int max) {
 }
 
 int validarDecimal(float valor, float min, float max) {
-    if (valor > min && valor < max) {
+    if (valor >= min && valor <= max) {
         return 1;
     }
     return 0;
