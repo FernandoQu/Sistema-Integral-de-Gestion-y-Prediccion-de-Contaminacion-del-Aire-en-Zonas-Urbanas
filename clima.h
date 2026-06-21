@@ -36,5 +36,6 @@ typedef struct
 
 void configurarNombresZonas(ZonaUrbana ciudades[], int totalZonas);
 void ingresarDatosActuales(ZonaUrbana *zona);
+void mostrarEstadoYAlertas(ZonaUrbana *zona);
 
 #endif
