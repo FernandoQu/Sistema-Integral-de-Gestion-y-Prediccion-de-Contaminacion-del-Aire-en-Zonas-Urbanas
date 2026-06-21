@@ -3,6 +3,8 @@
 #include <string.h>
 #include "validaciones.h"
 
-int maind(){
+int main(){
+
     
+
 }
