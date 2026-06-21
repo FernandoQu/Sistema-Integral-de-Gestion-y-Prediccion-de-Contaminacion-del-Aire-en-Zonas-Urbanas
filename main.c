@@ -14,10 +14,39 @@ int main(){
     //se llama a la funcion para colocar el nombre de las zonas linea 7 de clima.c
     configurarNombresZonas(ciudades, TOTAL_ZONAS);
 
-    printf("\n=== REGISTRO DE MONITOREO DIARIO ===\n");
-    ingresarDatosActuales(&ciudades[0]);
+    while (opcion != 4) {
+        printf("\n======================================================\n");
+        printf("\t\tMENU PRINCIPAL\n");
+        printf("======================================================\n");
+        printf("1. Ingresar monitoreo actual\n");
+        printf("2. Mostrar estado actual y alertas preventivas\n");
+        printf("3. Generar prediccion a 24 horas\n");
+        printf("4.\n");
+ 
+        leerEnteroValidado("Seleccione una opcion (1-4): ", 1, 4, &opcion);
 
-    printf("\nDatos guardados en memoria interna:\n");
-    printf("Zona: %s | Temp registrada: %.2f C\n", ciudades[0].zonas, ciudades[0].climaActual.temperatura);
+        switch (opcion) {
+            case 1:
+                printf("\n--- REGISTRO DE MONITOREO DIARIO ---\n");
+                for (int i = 0; i < TOTAL_ZONAS; i++) {
+                    ingresarDatosActuales(&ciudades[i]);
+                }
+                break;
+                
+            case 2:
+                printf("\n--- ESTADO ACTUAL Y ALERTAS ---\n");
+
+                break;
+                
+            case 3:
+                printf("\n--- PREDICCION A 24 HORAS ---\n");
+
+                break;
+                
+            case 4:
+
+                break;
+        }
+    }
 
 }
