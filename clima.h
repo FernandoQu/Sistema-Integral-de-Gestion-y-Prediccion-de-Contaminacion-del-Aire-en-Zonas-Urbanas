@@ -21,8 +21,12 @@ typedef struct
 typedef struct
 {
     char zonas[50];
-    float nivelDeContaminacionActual
 
+    Contaminantes actual;
+    Contaminantes historial[30];
+    Contaminantes prediccion;   
+    
+    FactoresClimaticos climaActual;
 } ZonaUrbana;
 
 
