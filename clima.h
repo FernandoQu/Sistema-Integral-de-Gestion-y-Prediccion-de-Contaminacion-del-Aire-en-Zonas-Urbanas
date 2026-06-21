@@ -5,6 +5,7 @@ typedef struct
 {
     float temperatura;
     float velocidad;
+    float humedad;
 
 } FactoresClimaticos;
 
@@ -29,6 +30,6 @@ typedef struct
     FactoresClimaticos climaActual;
 } ZonaUrbana;
 
-
+void ingresarDatosActuales(ZonaUrbana *zona);
 
 #endif

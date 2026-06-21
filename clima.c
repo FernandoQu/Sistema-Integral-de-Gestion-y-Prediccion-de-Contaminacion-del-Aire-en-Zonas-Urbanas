@@ -7,28 +7,16 @@
 void ingresarDatosActuales(ZonaUrbana *zona) {
     printf("\n--- Ingreso de datos para la zona: %s ---\n", zona->zonas);
 
-    printf("Ingrese la temperatura actual (C): ");
-    scanf("%f", &zona->climaActual.temperatura);
-    
-    printf("Ingrese la velocidad del viento (km/h): ");
-    scanf("%f", &zona->climaActual.velocidad);
-    
-    printf("Ingrese la humedad (%%): ");
-    scanf("%f", &zona->climaActual.humedad);
+    leerDecimalValidado("Ingrese la temperatura actual (C): ", -20.0, 60.0, &zona->climaActual.temperatura);
+    leerDecimalValidado("Ingrese la velocidad del viento (km/h): ", 0.0, 250.0, &zona->climaActual.velocidad);
+    leerDecimalValidado("Ingrese la humedad (%): ", 0.0, 100.0, &zona->climaActual.humedad);
 
     printf("\nIngrese los niveles actuales de contaminantes:\n");
     
-    printf("Nivel de CO2: ");
-    scanf("%f", &zona->actual.co2);
-    
-    printf("Nivel de SO2: ");
-    scanf("%f", &zona->actual.so2);
-    
-    printf("Nivel de NO2: ");
-    scanf("%f", &zona->actual.no2);
-    
-    printf("Nivel de PM2.5: ");
-    scanf("%f", &zona->actual.pm25);
+    leerDecimalValidado("Nivel de CO2: ", 0.0, 2000.0, &zona->actual.co2);
+    leerDecimalValidado("Nivel de SO2: ", 0.0, 1000.0, &zona->actual.so2);
+    leerDecimalValidado("Nivel de NO2: ", 0.0, 1000.0, &zona->actual.no2);
+    leerDecimalValidado("Nivel de PM2.5: ", 0.0, 1000.0, &zona->actual.pm25);
     
     printf("\nDatos de la zona %s ingresados correctamente.\n", zona->zonas);
 }
