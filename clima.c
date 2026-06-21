@@ -58,3 +58,31 @@ void ingresarDatosActuales(ZonaUrbana *zona) {
     
     printf("\nDatos de la zona %s ingresados correctamente.\n", zona->zonas);
 }
+
+void mostrarEstadoYAlertas(ZonaUrbana *zona) {
+    printf("\n--- ESTADO ACTUAL: %s ---\n", zona->zonas);
+    printf("CO2: %.2f | SO2: %.2f | NO2: %.2f | PM2.5: %.2f\n",zona->actual.co2, zona->actual.so2, zona->actual.no2, zona->actual.pm25);
+
+    int hayAlerta = 0;
+
+    if (zona->actual.co2 > 1000.0) {
+        printf("ALERTA: Nivel de CO2 excede el limite de la OMS (1000.0).\n");
+        hayAlerta = 1;
+    }
+    if (zona->actual.so2 > 20.0) {
+        printf("ALERTA: Nivel de SO2 excede el limite de la OMS (20.0).\n");
+        hayAlerta = 1;
+    }
+    if (zona->actual.no2 > 40.0) {
+        printf("ALERTA: Nivel de NO2 excede el limite de la OMS (40.0).\n");
+        hayAlerta = 1;
+    }
+    if (zona->actual.pm25 > 15.0) {
+        printf("ALERTA: Nivel de PM2.5 excede el limite de la OMS (15.0).\n");
+        hayAlerta = 1;
+    }
+
+    if (!hayAlerta) {
+        printf("Todos los niveles se encuentran dentro de los parametros normales.\n");
+    }
+}
