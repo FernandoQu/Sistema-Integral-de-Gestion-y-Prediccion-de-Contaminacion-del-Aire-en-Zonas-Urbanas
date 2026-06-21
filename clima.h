@@ -1,5 +1,6 @@
 #ifndef CLIMA_H
 #define CLIMA_H
+#define TOTAL_ZONAS 5
 
 typedef struct 
 {
@@ -30,6 +31,7 @@ typedef struct
     FactoresClimaticos climaActual;
 } ZonaUrbana;
 
+void configurarNombresZonas(ZonaUrbana ciudades[], int totalZonas);
 void ingresarDatosActuales(ZonaUrbana *zona);
 
 #endif
