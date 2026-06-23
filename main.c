@@ -83,6 +83,7 @@ int main() {
             case 5:
                 if (cont > 0) {
                     printf("\nActualizando historial historico y cerrando el sistema...\n");
+                    //linea 229 de clima.c
                     actualizarYGuardarHistorial(ciudades, TOTAL_ZONAS);
                 } else {
                     printf("\n[!]Cerrando el sistema sin registrar nuevos datos.\n");
