@@ -4,6 +4,7 @@
 #include "validaciones.h"
 #include "clima.h"
 
+//esto es solo un menu para elegir la opcion 
 int mostrarMenu(){
     int opcion = 0;
     printf("\n======================================================\n");
@@ -19,9 +20,14 @@ int mostrarMenu(){
 
 }
 
+//Es el ingreso de datos tanto de contaminacion como de las condiciones climaticas
 void ingresarDatosActuales(ZonaUrbana *zona) {
+    //Recibe la estructura en esa posicion 
+    //al ser un puntero cambia sus valores
     printf("\n--- Ingreso de datos para la zona: %s ---\n", zona->zonas);
 
+    //se llama a la funcion de leerDecimalValido 
+    //linea 51 de validaciones.c
     leerDecimalValidado("Ingrese la temperatura actual (-20 a 60, C): ", -20.0, 60.0, &zona->climaActual.temperatura);
     leerDecimalValidado("Ingrese la velocidad del viento (0 a 250, km/h): ", 0.0, 250.0, &zona->climaActual.velocidad);
     leerDecimalValidado("Ingrese la humedad (0% - 100%): ", 0.0, 100.0, &zona->climaActual.humedad);
