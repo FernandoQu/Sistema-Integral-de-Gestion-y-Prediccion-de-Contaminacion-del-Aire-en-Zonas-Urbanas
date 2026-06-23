@@ -62,6 +62,7 @@ int main() {
                 if (cont > 0) {
                     printf("\n--- PREDICCION A 24 HORAS ---\n");
                     for (int i = 0; i < TOTAL_ZONAS; i++) {
+                        //generarPrediccion linea 129 clima.c
                         generarPrediccion(&ciudades[i]);
                     }
                 } else {
