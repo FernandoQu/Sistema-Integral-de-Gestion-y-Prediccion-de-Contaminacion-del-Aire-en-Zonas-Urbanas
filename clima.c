@@ -4,6 +4,21 @@
 #include "validaciones.h"
 #include "clima.h"
 
+int mostrarMenu(){
+    int opcion = 0;
+    printf("\n======================================================\n");
+    printf("\t\tMENU PRINCIPAL\n");
+    printf("======================================================\n");
+    printf("1. Ingresar monitoreo actual\n");
+    printf("2. Mostrar estado actual y alertas preventivas\n");
+    printf("3. Generar prediccion a 24 horas\n");
+    printf("4. Exportar reporte\n");
+    printf("5. Guardar historial del dia y salir\n");
+    leerEnteroValidado("Seleccione una opcion (1-5): ", 1, 5, &opcion);
+    return opcion;
+
+}
+
 void ingresarDatosActuales(ZonaUrbana *zona) {
     printf("\n--- Ingreso de datos para la zona: %s ---\n", zona->zonas);
 

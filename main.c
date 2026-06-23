@@ -18,8 +18,6 @@ int main() {
     printf("\t\t=== ZONAS ===\n");
     printf("Zona Norte \nZona Sur \nZona Noreste \nZona Este \nZona Oeste\n");
 
-    cargarHistorial(ciudades, TOTAL_ZONAS);
-
     int cont = 0;
     int opcion = 0;
 
