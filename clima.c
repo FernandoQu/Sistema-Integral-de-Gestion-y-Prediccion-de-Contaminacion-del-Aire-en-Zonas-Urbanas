@@ -227,15 +227,21 @@ void exportarReporte(ZonaUrbana ciudades[], int totalZonas) {
 //se lo usa para la opcio 5
 //guarga y actualiza el historial eliminando los datos mas antiguos y reemplazandolos por los nuevos
 void actualizarYGuardarHistorial(ZonaUrbana ciudades[], int totalZonas) {
+    //se repito por cada zona
     for (int i = 0; i < totalZonas; i++) {
         
+        //se repite por cada dia
         for (int j = 0; j < 29; j++) {
+            //se desplaza cada dato una posicion
+            //las posiciones bajan
             ciudades[i].historial[j] = ciudades[i].historial[j + 1];
         }
         
+        //lo que estaba en la posicion 29 ahora es la informacion actual
         ciudades[i].historial[29] = ciudades[i].actual;
     }
 
+    //se gurda los nuevos datos en el archivo historial_datos.txt
     FILE *archivo = fopen("historial_datos.txt", "w");
     if (archivo != NULL) {
         for (int i = 0; i < totalZonas; i++) {
