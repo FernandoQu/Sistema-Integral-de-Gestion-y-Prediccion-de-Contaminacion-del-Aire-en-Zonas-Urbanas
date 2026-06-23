@@ -77,6 +77,20 @@ void mostrarEstadoYAlertas(ZonaUrbana *zona) {
     //como en el main.c se le pasa la estructura en esa posicion va a poner las alertas de las 5 zonas
 }
 
+void cargarHistorial(ZonaUrbana ciudades[], int totalZonas) {
+    FILE *archivo = fopen("historial_datos.txt", "r");
+    
+    for (int i = 0; i < totalZonas; i++) {
+        for (int j = 0; j < 30; j++) {
+            fscanf(archivo, "%f %f %f %f", 
+                &ciudades[i].historial[j].co2, &ciudades[i].historial[j].so2, 
+                &ciudades[i].historial[j].no2, &ciudades[i].historial[j].pm25);
+        }
+    }
+    fclose(archivo);
+    printf("\n[+]Historial cargado exitosamente.\n");
+}
+
 void analizarPromediosHistoricos(ZonaUrbana *zona) {
     float sumaCO2 = 0, sumaSO2 = 0, sumaNO2 = 0, sumaPM25 = 0;
 

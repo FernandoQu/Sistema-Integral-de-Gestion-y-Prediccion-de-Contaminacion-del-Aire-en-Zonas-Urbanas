@@ -19,6 +19,10 @@ int main() {
     printf("\t\t=== ZONAS ===\n");
     printf("Zona Norte \nZona Sur \nZona Noreste \nZona Este \nZona Oeste\n");
 
+    //se carga los datos historicos de historial_datos.txt
+    //como solo se va a cargar y no modificar nada no es necesario el &
+    cargarHistorial(ciudades, TOTAL_ZONAS);
+
     //cont sirve para verificar si se ingreso o no datos en la opcion 1
     int cont = 0;
     int opcion = 0;
