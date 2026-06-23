@@ -39,7 +39,11 @@ typedef struct
 } ZonaUrbana;
 
 int mostrarMenu();
+
 void ingresarDatosActuales(ZonaUrbana *zona);
 void mostrarEstadoYAlertas(ZonaUrbana *zona);
+void cargarHistorial(ZonaUrbana ciudades[], int totalZonas);
+void analizarPromediosHistoricos(ZonaUrbana *zona);
+void generarPrediccion(ZonaUrbana *zona);
 
 #endif

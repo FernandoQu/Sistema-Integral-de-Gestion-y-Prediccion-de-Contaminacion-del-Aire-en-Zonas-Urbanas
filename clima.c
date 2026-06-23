@@ -125,3 +125,39 @@ void analizarPromediosHistoricos(ZonaUrbana *zona) {
     }
     //como en el main.c se le pasa la estructura en esa posicion va a poner las alertas de las 5 zonas
 }
+
+void generarPrediccion(ZonaUrbana *zona) {
+    // Algoritmo de prediccion: Promedio ponderado de los ultimos 3 dias del historial
+    // Se le da más peso a los días más recientes: Ayer (50%), Anteayer (30%), Hace 3 dias (20%)
+    
+    zona->prediccion.co2 = (zona->actual.co2 * 0.5) + (zona->historial[28].co2 * 0.3) + (zona->historial[27].co2 * 0.2);
+    zona->prediccion.so2 = (zona->actual.so2 * 0.5) + (zona->historial[28].so2 * 0.3) + (zona->historial[27].so2 * 0.2);
+    zona->prediccion.no2 = (zona->actual.no2 * 0.5) + (zona->historial[28].no2 * 0.3) + (zona->historial[27].no2 * 0.2);
+    zona->prediccion.pm25 = (zona->actual.pm25 * 0.5) + (zona->historial[28].pm25 * 0.3) + (zona->historial[27].pm25 * 0.2);
+
+    // Influencia de los factores climaticos actuales sobre la base historica
+    // Si la velocidad del viento es menor a 10 km/h, la contaminacion aumenta un 15%
+    if (zona->climaActual.velocidad < 10.0) {
+        zona->prediccion.co2 *= 1.15;
+        zona->prediccion.so2 *= 1.15;
+        zona->prediccion.no2 *= 1.15;
+        zona->prediccion.pm25 *= 1.15;
+    }
+
+    // La alta humedad (> 80%) atrapa las particulas finas, aumentando PM2.5 en un 10%
+    if (zona->climaActual.humedad > 80.0) {
+        zona->prediccion.pm25 *= 1.10;
+    }
+
+    printf("\n--- PREDICCION A 24H: %s ---\n", zona->zonas);
+    printf("CO2 esperado: %.2f | SO2 esperado: %.2f\n", zona->prediccion.co2, zona->prediccion.so2);
+    printf("NO2 esperado: %.2f | PM2.5 esperado: %.2f\n", zona->prediccion.no2, zona->prediccion.pm25);
+    printf("-> Base: Algoritmo historico ponderado + Clima actual (Viento: %.1f km/h | Humedad: %.1f%%)\n", 
+           zona->climaActual.velocidad, zona->climaActual.humedad);
+
+    // Emision de alertas y recomendaciones preventivas
+    if (zona->prediccion.pm25 > 15.0 || zona->prediccion.co2 > 1000.0) {
+        printf(">> [!] ALERTA PREVENTIVA: Se preve que se superaran los limites permitidos manana.\n");
+        printf(">> [!] RECOMENDACION: Aplicar reduccion del trafico vehicular y suspension de actividades al aire libre.\n");
+    }
+}

@@ -59,7 +59,14 @@ int main() {
                 break;
                 
             case 3:
-
+                if (cont > 0) {
+                    printf("\n--- PREDICCION A 24 HORAS ---\n");
+                    for (int i = 0; i < TOTAL_ZONAS; i++) {
+                        generarPrediccion(&ciudades[i]);
+                    }
+                } else {
+                    printf("\n[!]No se encontro ningun registro actual. Por favor, seleccione la opcion 1 primero.\n");
+                }
                 break;
                 
             case 4:
