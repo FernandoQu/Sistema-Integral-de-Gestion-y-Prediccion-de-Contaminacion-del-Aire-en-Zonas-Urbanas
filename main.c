@@ -71,7 +71,13 @@ int main() {
                 break;
                 
             case 4:
-
+                if (cont > 0) {
+                    printf("\nGenerando reporte...\n");
+                    //exportarReporte linea 166 de clima.c
+                    exportarReporte(ciudades, TOTAL_ZONAS);
+                } else {
+                    printf("\n[!]No se ingresaron datos el dia de hoy.\n");
+                }
                 break;
                 
             case 5:

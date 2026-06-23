@@ -161,3 +161,63 @@ void generarPrediccion(ZonaUrbana *zona) {
         printf(">> [!] RECOMENDACION: Aplicar reduccion del trafico vehicular y suspension de actividades al aire libre.\n");
     }
 }
+
+//sirve para exportar el reporte 
+void exportarReporte(ZonaUrbana ciudades[], int totalZonas) {
+    //se abre el archivo en modo escritura
+    FILE *archivo = fopen("reporte_analisis.txt", "w");
+    
+    //comprobacion para ver si el archivo existe
+    if (archivo == NULL) {
+        printf("[+] Error al crear el archivo de reporte.\n");
+        return;
+    }
+
+    fprintf(archivo, "======================================================\n");
+    fprintf(archivo, "       REPORTE DE CALIDAD DEL AIRE Y PREDICCIONES     \n");
+    fprintf(archivo, "======================================================\n\n");
+
+    //esta parte es por si no se ejecuto la opcion 3 antes
+    // para colocar los datos de prediccion en los datos guardados
+    for (int i = 0; i < totalZonas; i++) {
+
+        ciudades[i].prediccion.co2 = (ciudades[i].actual.co2 * 0.5) + (ciudades[i].historial[28].co2 * 0.3) + (ciudades[i].historial[27].co2 * 0.2);
+        ciudades[i].prediccion.so2 = (ciudades[i].actual.so2 * 0.5) + (ciudades[i].historial[28].so2 * 0.3) + (ciudades[i].historial[27].so2 * 0.2);
+        ciudades[i].prediccion.no2 = (ciudades[i].actual.no2 * 0.5) + (ciudades[i].historial[28].no2 * 0.3) + (ciudades[i].historial[27].no2 * 0.2);
+        ciudades[i].prediccion.pm25 = (ciudades[i].actual.pm25 * 0.5) + (ciudades[i].historial[28].pm25 * 0.3) + (ciudades[i].historial[27].pm25 * 0.2);
+
+        if (ciudades[i].climaActual.velocidad < 10.0) {
+            ciudades[i].prediccion.co2 *= 1.15;
+            ciudades[i].prediccion.so2 *= 1.15;
+            ciudades[i].prediccion.no2 *= 1.15;
+            ciudades[i].prediccion.pm25 *= 1.15;
+        }
+
+        if (ciudades[i].climaActual.humedad > 80.0) {
+            ciudades[i].prediccion.pm25 *= 1.10;
+        }
+    }    
+
+    //se coloca los datos de todas las zonas en el archivo
+    for (int i = 0; i < totalZonas; i++) {
+        fprintf(archivo, "--- ZONA: %s ---\n", ciudades[i].zonas);
+        fprintf(archivo, "Niveles Actuales: CO2: %.2f | SO2: %.2f | NO2: %.2f | PM2.5: %.2f\n", 
+                ciudades[i].actual.co2, ciudades[i].actual.so2, 
+                ciudades[i].actual.no2, ciudades[i].actual.pm25);
+                
+        fprintf(archivo, "Prediccion 24H  : CO2: %.2f | SO2: %.2f | NO2: %.2f | PM2.5: %.2f\n", 
+                ciudades[i].prediccion.co2, ciudades[i].prediccion.so2, 
+                ciudades[i].prediccion.no2, ciudades[i].prediccion.pm25);
+        
+        if (ciudades[i].prediccion.pm25 > 15.0 || ciudades[i].prediccion.co2 > 1000.0) {
+            fprintf(archivo, ">> ESTADO: ALERTA PREVENTIVA\n");
+            fprintf(archivo, ">> RECOMENDACION: Aplicar restriccion vehicular (Pico y Placa) y limitar actividades industriales.\n\n");
+        } else {
+            fprintf(archivo, ">> ESTADO: NORMAL\n");
+            fprintf(archivo, ">> RECOMENDACION: Ninguna medida de mitigacion adicional requerida.\n\n");
+        }
+    }
+
+    fclose(archivo);
+    printf("\n[+] El reporte se ha exportado exitosamente al archivo 'reporte_analisis.txt'\n");
+}
