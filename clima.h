@@ -34,6 +34,7 @@ typedef struct
     FactoresClimaticos climaActual;
 } ZonaUrbana;
 
+int mostrarMenu();
 void ingresarDatosActuales(ZonaUrbana *zona);
 void mostrarEstadoYAlertas(ZonaUrbana *zona);
 
