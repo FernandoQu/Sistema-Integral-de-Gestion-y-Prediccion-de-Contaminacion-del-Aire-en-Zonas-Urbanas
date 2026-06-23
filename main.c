@@ -81,7 +81,12 @@ int main() {
                 break;
                 
             case 5:
-
+                if (cont > 0) {
+                    printf("\nActualizando historial historico y cerrando el sistema...\n");
+                    actualizarYGuardarHistorial(ciudades, TOTAL_ZONAS);
+                } else {
+                    printf("\n[!]Cerrando el sistema sin registrar nuevos datos.\n");
+                }
                 break;
         }
     }
