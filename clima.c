@@ -77,11 +77,16 @@ void mostrarEstadoYAlertas(ZonaUrbana *zona) {
     //como en el main.c se le pasa la estructura en esa posicion va a poner las alertas de las 5 zonas
 }
 
+//Se carga el historial de datos de historial_datos.txt
 void cargarHistorial(ZonaUrbana ciudades[], int totalZonas) {
+    //se abre el archivo en modo lectura para copiarlos en el historial
+    //linea 34 de clima.h
     FILE *archivo = fopen("historial_datos.txt", "r");
     
+    //un blucle para cargar el historial de los ultimos 30 por cada ciudad
     for (int i = 0; i < totalZonas; i++) {
         for (int j = 0; j < 30; j++) {
+            //lee linea por linea los datos del archivo historial_datos.txt
             fscanf(archivo, "%f %f %f %f", 
                 &ciudades[i].historial[j].co2, &ciudades[i].historial[j].so2, 
                 &ciudades[i].historial[j].no2, &ciudades[i].historial[j].pm25);

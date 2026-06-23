@@ -44,12 +44,13 @@ int main() {
                 
             case 2:
                 if (cont > 0) {
-                    //mostrarEstadoYAlertas lineas 46 de clima.c
+                    //mostrarEstadoYAlertas lineas 47 de clima.c
                     printf("\n--- ESTADO ACTUAL Y ALERTAS ---\n");
                     //se le pasa el arreglo de estructuras que ya esta con datos
                     for (int i = 0; i < TOTAL_ZONAS; i++) {
                         //mostrarEstadoYAlertas essta en la linea 47 del clima.c
                         mostrarEstadoYAlertas(&ciudades[i]);
+                        //analizarPromediosHistoricos linea 99 de clima.c
                         analizarPromediosHistoricos(&ciudades[i]);
                     }
                 } else {
