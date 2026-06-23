@@ -39,7 +39,15 @@ int main() {
                 break;
                 
             case 2:
-
+                if (cont > 0) {
+                    printf("\n--- ESTADO ACTUAL Y ALERTAS ---\n");
+                    for (int i = 0; i < TOTAL_ZONAS; i++) {
+                        mostrarEstadoYAlertas(&ciudades[i]);
+                        analizarPromediosHistoricos(&ciudades[i]);
+                    }
+                } else {
+                    printf("\n[!]No se encontro ningun registro actual. Por favor, seleccione la opcion 1 primero.\n");
+                }
                 break;
                 
             case 3:
