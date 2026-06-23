@@ -28,6 +28,8 @@ typedef struct
     //se usa la anterior estructura para usarlo para cada zona actual
     //tambien para el historial y para usar las predicciones
     Contaminantes actual;
+    //guarda los datos del contaminate actual
+
     //esto es un arreglo de estructuras de los contaminantes para los 30 dias
     Contaminantes historial[30];
     Contaminantes prediccion;   
