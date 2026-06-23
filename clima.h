@@ -42,8 +42,10 @@ int mostrarMenu();
 
 void ingresarDatosActuales(ZonaUrbana *zona);
 void mostrarEstadoYAlertas(ZonaUrbana *zona);
-void cargarHistorial(ZonaUrbana ciudades[], int totalZonas);
-void analizarPromediosHistoricos(ZonaUrbana *zona);
 void generarPrediccion(ZonaUrbana *zona);
+void analizarPromediosHistoricos(ZonaUrbana *zona);
+void cargarHistorial(ZonaUrbana ciudades[], int totalZonas);
+void actualizarYGuardarHistorial(ZonaUrbana ciudades[], int totalZonas);
+void exportarReporte(ZonaUrbana ciudades[], int totalZonas);
 
 #endif
