@@ -76,3 +76,33 @@ void mostrarEstadoYAlertas(ZonaUrbana *zona) {
     }
     //como en el main.c se le pasa la estructura en esa posicion va a poner las alertas de las 5 zonas
 }
+
+void analizarPromediosHistoricos(ZonaUrbana *zona) {
+    float sumaCO2 = 0, sumaSO2 = 0, sumaNO2 = 0, sumaPM25 = 0;
+
+    // Sumar los 30 dias almacenados en el historial
+    // linea 34 clima.h
+    for (int i = 0; i < 30; i++) {
+        sumaCO2 += zona->historial[i].co2;
+        sumaSO2 += zona->historial[i].so2;
+        sumaNO2 += zona->historial[i].no2;
+        sumaPM25 += zona->historial[i].pm25;
+    }
+
+    // Calcular el promedio mensual
+    float promCO2 = sumaCO2 / 30.0;
+    float promSO2 = sumaSO2 / 30.0;
+    float promNO2 = sumaNO2 / 30.0;
+    float promPM25 = sumaPM25 / 30.0;
+
+    printf("\n--- PROMEDIO HISTORICO (30 DIAS): %s ---\n", zona->zonas);
+    printf("Promedios -> CO2: %.2f | SO2: %.2f | NO2: %.2f | PM2.5: %.2f\n", promCO2, promSO2, promNO2, promPM25);
+
+    // Comparar promedios historicos con limites de la OMS
+    if (promCO2 > 1000.0 || promSO2 > 40.0 || promNO2 > 25.0 || promPM25 > 15.0) {
+        printf("[!] ADVERTENCIA HISTORICA: La zona supera sistematicamente los limites de la OMS a largo plazo.\n");
+    } else {
+        printf("[+] El historial indica niveles saludables promedio durante el ultimo mes.\n");
+    }
+    //como en el main.c se le pasa la estructura en esa posicion va a poner las alertas de las 5 zonas
+}
