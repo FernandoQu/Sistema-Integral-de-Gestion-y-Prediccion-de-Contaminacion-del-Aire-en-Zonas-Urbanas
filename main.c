@@ -25,14 +25,21 @@ int main() {
 
     //cont sirve para verificar si se ingreso o no datos en la opcion 1
     int cont = 0;
-    int opcion = 0;
+    int opcion = 1;
 
-    while (opcion != 5) {
+    while (opcion != 0) {
 
 
         opcion = mostrarMenu();
 
         switch (opcion) {
+            case 0:
+                if (cont > 0) {
+                    printf("\nSALIENDO\n");
+                } else {
+                    printf("\n[!]Cerrando el sistema sin registrar nuevos datos.\n");
+                }
+            break;
             case 1:
                 printf("\n--- REGISTRO DE MONITOREO DIARIO ---\n");
                 //se le pasa el arreglo de ZonaUrbana para que la funcion la rellene

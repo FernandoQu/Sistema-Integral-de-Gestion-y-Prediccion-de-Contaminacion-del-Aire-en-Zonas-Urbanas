@@ -14,8 +14,9 @@ int mostrarMenu(){
     printf("2. Mostrar estado actual y alertas preventivas\n");
     printf("3. Generar prediccion a 24 horas\n");
     printf("4. Exportar reporte\n");
-    printf("5. Guardar historial del dia y salir\n");
-    leerEnteroValidado("Seleccione una opcion (1-5): ", 1, 5, &opcion);
+    printf("5. Guardar historial del dia\n");
+    printf("0. Salir\n");
+    leerEnteroValidado("Seleccione una opcion (0-5): ", 0, 5, &opcion);
     return opcion;
 
 }

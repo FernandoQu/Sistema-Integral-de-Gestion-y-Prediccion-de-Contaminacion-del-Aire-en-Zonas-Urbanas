@@ -1,0 +1,34 @@
+======================================================
+	REPORTE DE CALIDAD DEL AIRE Y PREDICCIONES     
+======================================================
+
+--- ZONA: Zona Norte ---
+Niveles Actuales: CO2: 250.00 | SO2: 150.00 | NO2: 100.00 | PM2.5: 60.00
+Prediccion 24H  : CO2: 497.50 | SO2: 124.10 | NO2: 262.40 | PM2.5: 102.00
+>> ESTADO: ALERTA PREVENTIVA
+>> RECOMENDACION: Aplicar restriccion vehicular (Pico y Placa) y limitar actividades industriales.
+
+--- ZONA: Zona Sur ---
+Niveles Actuales: CO2: 150.00 | SO2: 200.00 | NO2: 300.00 | PM2.5: 100.00
+Prediccion 24H  : CO2: 144.50 | SO2: 137.90 | NO2: 214.80 | PM2.5: 58.00
+>> ESTADO: ALERTA PREVENTIVA
+>> RECOMENDACION: Aplicar restriccion vehicular (Pico y Placa) y limitar actividades industriales.
+
+--- ZONA: Zona Noreste ---
+Niveles Actuales: CO2: 254.00 | SO2: 21.00 | NO2: 351.00 | PM2.5: 21.00
+Prediccion 24H  : CO2: 295.20 | SO2: 166.30 | NO2: 279.20 | PM2.5: 105.20
+>> ESTADO: ALERTA PREVENTIVA
+>> RECOMENDACION: Aplicar restriccion vehicular (Pico y Placa) y limitar actividades industriales.
+
+--- ZONA: Zona Este ---
+Niveles Actuales: CO2: 25.00 | SO2: 36.00 | NO2: 25.00 | PM2.5: 15.00
+Prediccion 24H  : CO2: 20.00 | SO2: 99.20 | NO2: 101.70 | PM2.5: 91.70
+>> ESTADO: ALERTA PREVENTIVA
+>> RECOMENDACION: Aplicar restriccion vehicular (Pico y Placa) y limitar actividades industriales.
+
+--- ZONA: Zona Oeste ---
+Niveles Actuales: CO2: 25.00 | SO2: 14.00 | NO2: 25.00 | PM2.5: 52.00
+Prediccion 24H  : CO2: 32.70 | SO2: 21.70 | NO2: 28.10 | PM2.5: 45.10
+>> ESTADO: ALERTA PREVENTIVA
+>> RECOMENDACION: Aplicar restriccion vehicular (Pico y Placa) y limitar actividades industriales.
+
